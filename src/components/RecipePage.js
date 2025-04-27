@@ -22,7 +22,7 @@ const RecipesPage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/recipes');
+        const response = await axios.get('https://b-2-ak4e.onrender.com/api/recipes');
         setRecipes(response.data);
         setFilteredRecipes(response.data);
       } catch (err) {
@@ -35,7 +35,7 @@ const RecipesPage = () => {
 
     const fetchLikes = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/recipes/likes');
+        const response = await axios.get('https://b-2-ak4e.onrender.com/api/recipes/likes');
         setLikes(response.data); // response.data should be { recipeId: [userIds] }
       } catch (err) {
         console.error('Failed to fetch likes:', err);
@@ -77,7 +77,7 @@ const RecipesPage = () => {
     }
     console.log(userId);
     try {
-      await axios.post(`http://localhost:5000/api/recipes/${id}/like`, { userId });
+      await axios.post(`https://b-2-ak4e.onrender.com/api/recipes/${id}/like`, { userId });
       setLikes((prev) => ({
         ...prev,
         [id]: [...(prev[id] || []), userId],
@@ -99,7 +99,7 @@ const RecipesPage = () => {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/recipes/${id}/dislike`, { userId });
+      await axios.post(`https://b-2-ak4e.onrender.com/api/recipes/${id}/dislike`, { userId });
       setLikes((prev) => ({
         ...prev,
         [id]: prev[id].filter((uid) => uid !== userId),
