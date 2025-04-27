@@ -14,7 +14,7 @@ const SearchUsersPage = () => {
     if (!userSearchQuery.trim()) return;
   
     try {
-      const response = await axios.get(`http://localhost:5000/api/auth/user/${userSearchQuery}`);
+      const response = await axios.get(`https://b-2-ak4e.onrender.com/api/auth/user/${userSearchQuery}`);
       console.log(response.data);
       setFoundUser(response.data);
       
@@ -38,7 +38,7 @@ const SearchUsersPage = () => {
     try {
       console.log('Follow request body:', { currentUserId: userId, targetUserId });
 
-      await axios.post('http://localhost:5000/api/social/follow', {
+      await axios.post('https://b-2-ak4e.onrender.com/api/social/follow', {
         currentUserId: userId,
         targetUserId,
       });
@@ -57,7 +57,7 @@ const SearchUsersPage = () => {
         targetUserId,
       });
   
-      const response = await axios.post('http://localhost:5000/api/social/unfollow', {
+      const response = await axios.post('https://b-2-ak4e.onrender.com/api/social/unfollow', {
         userId: userId,  // 👈 change to userId
         targetUserId,
       });
