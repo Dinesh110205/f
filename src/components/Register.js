@@ -28,7 +28,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('https://b-2-ak4e.onrender.com/api/auth/register', formData);
       setMessage('Registered successfully!');
       navigate('/login');
     } catch (err) {
