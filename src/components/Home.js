@@ -28,7 +28,7 @@ const Dashboard = () => {
       const fetchUserData = async () => {
         try {
           setLoading(true);
-          const res = await axios.get(`http://localhost:5000/api/dashboard/${userId}`);
+          const res = await axios.get(`https://b-2-ak4e.onrender.com/api/dashboard/${userId}`);
           setUserData(res.data);
         } catch (err) {
           console.error('Failed to fetch user data:', err);
@@ -40,7 +40,7 @@ const Dashboard = () => {
 
       const fetchUserPosts = async () => {
         try {
-          const res = await axios.get(`http://localhost:5000/api/recipes/user/${userId}`);
+          const res = await axios.get(`https://b-2-ak4e.onrender.com/api/recipes/user/${userId}`);
           setUserPosts(res.data);
           console.log(res.data);
         } catch (err) {
@@ -65,7 +65,7 @@ const Dashboard = () => {
     const ids = type === 'followers' ? followers : following;
   
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/get-users-by-ids', { ids });
+      const res = await axios.post('https://b-2-ak4e.onrender.com/api/auth/get-users-by-ids', { ids });
       setFollowUsers(res.data); // assuming res.data is an array of { _id, username }
     } catch (err) {
       console.error('Failed to fetch users by IDs:', err);
@@ -76,7 +76,7 @@ const Dashboard = () => {
   
   const handleDeletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/recipes/${postId}`);
+      await axios.delete(`https://b-2-ak4e.onrender.com/api/recipes/${postId}`);
       setUserPosts(userPosts.filter(post => post._id !== postId));
     } catch (err) {
       console.error('Failed to delete post:', err);
