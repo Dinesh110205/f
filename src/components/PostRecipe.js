@@ -25,7 +25,7 @@ const PostRecipe = () => {
     const stepsList = steps.split(',').map(item => item.trim()).filter(item => item !== '');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/recipes/post', {
+      const res = await axios.post('https://b-2-ak4e.onrender.com/api/recipes/post', {
         username,
         postedBy: userId,
         title,
