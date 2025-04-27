@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', // Adjust if your backend uses a different port
+  baseURL: 'https://b-2-ak4e.onrender.com/api', // Adjust if your backend uses a different port
 });
 
 // You can add Authorization token here later if needed
