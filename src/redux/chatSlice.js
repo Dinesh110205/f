@@ -6,7 +6,7 @@ export const getRecipeRecommendations = createAsyncThunk(
   'chat/getRecipeRecommendations',
   async ({ mood, ingredients, health }, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/chatbot', {
+      const response = await axios.post('https://b-2-ak4e.onrender.com/api/chatbot', {
         mood,
         ingredients,
         health,
