@@ -6,7 +6,7 @@ export const fetchRecipes = createAsyncThunk(
   'recipes/fetchRecipes',
   async (userId, thunkAPI) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/dashboard/${userId}`);
+      const response = await axios.get(`https://b-2-ak4e.onrender.com/api/dashboard/${userId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
