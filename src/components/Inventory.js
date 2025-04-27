@@ -26,7 +26,7 @@ const Inventory = () => {
     if (!userId) return;
     const fetchInventory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/inventory/${userId}`); 
+        const response = await axios.get(`https://b-2-ak4e.onrender.com/api/inventory/${userId}`); 
         console.log(response.data)
         setIngredients(response.data);
       } catch (error) {
@@ -49,7 +49,7 @@ const Inventory = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/inventory', {
+      await axios.post('https://b-2-ak4e.onrender.com/api/inventory', {
         userId,
         name: newIngredient.name,
         quantity: newIngredient.quantity,
@@ -58,7 +58,7 @@ const Inventory = () => {
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const res = await axios.get(`http://localhost:5000/api/inventory/${userId}`, {  // Also corrected this GET
+      const res = await axios.get(`https://b-2-ak4e.onrender.com/api/inventory/${userId}`, {  // Also corrected this GET
         headers: { Authorization: `Bearer ${token}` },
       });
       setIngredients(res.data);
@@ -84,7 +84,7 @@ const Inventory = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.put(`http://localhost:5000/api/inventory/${editingItem._id}`, updatedIngredient, {
+      const res = await axios.put(`https://b-2-ak4e.onrender.com/api/inventory/${editingItem._id}`, updatedIngredient, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const updatedIngredients = ingredients.map((item) =>
