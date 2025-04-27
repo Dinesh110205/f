@@ -19,7 +19,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+      const res = await axios.post('https://b-2-ak4e.onrender.com/api/auth/login', { username, password });
       dispatch(loginSuccess({ user: res.data.user, token: res.data.token }));
       localStorage.setItem('authToken', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
